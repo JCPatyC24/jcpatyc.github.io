@@ -1,0 +1,1418 @@
+```html
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0d1b2a">
+<title>Frases Epigramas y Poesía y Series Películas Cubanas Gratis</title>
+<meta name="description" content="Blog personal de Juan Carlos Paty Castillo. Frases, epigramas, poesía y series/películas cubanas gratis.">
+
+<!-- PWA -->
+<link rel="manifest" id="manifestLink">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="JCPaty">
+<link rel="apple-touch-icon" id="appleIcon">
+<link rel="icon" id="favicon">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+<style>
+/* ============ RESET & BASE ============ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --radius:16px;
+  --green:#25d366;
+  --transition:.3s cubic-bezier(.2,.7,.3,1);
+}
+
+html[data-theme="dark"]{
+  --bg:#0d1b2a;
+  --bg-grad:linear-gradient(180deg,#0d1b2a 0%,#0a1420 100%);
+  --card:#16233a;
+  --card-2:#1b263b;
+  --input-bg:#0d1b2a;
+  --text:#eef2f7;
+  --muted:#a8b3c4;
+  --border:rgba(255,255,255,.08);
+  --border-strong:rgba(255,255,255,.14);
+  --accent:#f4a261;
+  --accent-2:#e76f51;
+  --nav-bg:rgba(13,27,42,.92);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+  --hero-glow1:rgba(244,162,97,.18);
+  --hero-glow2:rgba(231,111,81,.18);
+}
+
+html[data-theme="light"]{
+  --bg:#f4f7fb;
+  --bg-grad:linear-gradient(180deg,#f4f7fb 0%,#e6edf6 100%);
+  --card:#ffffff;
+  --card-2:#f7fafd;
+  --input-bg:#ffffff;
+  --text:#131a26;
+  --muted:#5b6878;
+  --border:rgba(20,30,50,.08);
+  --border-strong:rgba(20,30,50,.16);
+  --accent:#e76f51;
+  --accent-2:#d65a3d;
+  --nav-bg:rgba(255,255,255,.88);
+  --shadow:0 10px 30px rgba(30,45,70,.10);
+  --hero-glow1:rgba(231,111,81,.14);
+  --hero-glow2:rgba(244,162,97,.16);
+}
+
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',system-ui,-apple-system,sans-serif;
+  background:var(--bg-grad);
+  color:var(--text);
+  line-height:1.6;
+  overflow-x:hidden;
+  padding-bottom:80px;
+  transition:background var(--transition),color var(--transition);
+  min-height:100vh;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button,input,textarea{font-family:inherit;font-size:1rem;color:inherit}
+button{background:none;border:none;cursor:pointer;color:inherit}
+
+/* ============ TOP CONTROLS (theme + install) ============ */
+.top-controls{
+  position:fixed;top:12px;right:12px;z-index:100;
+  display:flex;gap:8px;
+}
+.ctrl-btn{
+  width:46px;height:46px;border-radius:50%;
+  background:var(--card);border:1px solid var(--border-strong);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;box-shadow:var(--shadow);
+  transition:transform var(--transition),background var(--transition);
+}
+.ctrl-btn:hover{transform:scale(1.08)}
+.theme-toggle .icon-sun{display:none}
+html[data-theme="light"] .theme-toggle .icon-sun{display:block}
+html[data-theme="light"] .theme-toggle .icon-moon{display:none}
+.install-btn{display:none;background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none;font-size:1.2rem}
+.install-btn.show{display:flex;animation:pulse 2.4s infinite}
+
+/* ============ HEADER ============ */
+header.hero{
+  position:relative;
+  padding:70px 20px 50px;
+  text-align:center;
+  background:
+    radial-gradient(circle at 20% 20%,var(--hero-glow1),transparent 55%),
+    radial-gradient(circle at 80% 60%,var(--hero-glow2),transparent 55%),
+    var(--bg-grad);
+  border-bottom:1px solid var(--border);
+  transition:background var(--transition);
+}
+.hero .avatar{
+  width:120px;height:120px;border-radius:50%;
+  margin:0 auto 18px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.6rem;font-weight:800;color:#0d1b2a;
+  box-shadow:0 0 0 4px rgba(244,162,97,.25),var(--shadow);
+}
+.hero h1{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.6rem,5vw,2.6rem);
+  line-height:1.2;margin-bottom:10px;
+}
+.hero h1 span{color:var(--accent)}
+.hero p.tag{color:var(--muted);font-size:.95rem;max-width:520px;margin:0 auto 22px}
+.socials{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+.socials a{
+  width:46px;height:46px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--card);border:1px solid var(--border-strong);
+  transition:var(--transition);font-size:1.15rem;
+}
+.socials a:hover{background:var(--accent);transform:translateY(-3px);color:#0d1b2a;border-color:var(--accent)}
+
+/* ============ BUSCADOR ============ */
+.search-bar{
+  max-width:600px;
+  margin:22px auto 0;
+  position:relative;
+}
+.search-bar input{
+  width:100%;
+  padding:14px 44px 14px 46px;
+  border-radius:999px;
+  background:var(--card);
+  border:1px solid var(--border-strong);
+  color:var(--text);
+  font-size:.92rem;
+  outline:none;
+  transition:.25s;
+}
+.search-bar input:focus{
+  border-color:var(--accent);
+  box-shadow:0 0 0 4px rgba(244,162,97,.18);
+}
+.search-bar .search-icon{
+  position:absolute;left:16px;top:50%;
+  transform:translateY(-50%);
+  font-size:1rem;color:var(--muted);
+  pointer-events:none;
+}
+.search-bar .search-clear{
+  position:absolute;right:8px;top:50%;
+  transform:translateY(-50%);
+  width:32px;height:32px;border-radius:50%;
+  display:none;align-items:center;justify-content:center;
+  background:var(--card-2);color:var(--muted);
+  font-size:.85rem;
+}
+.search-bar .search-clear.show{display:flex}
+.search-results-info{
+  max-width:600px;
+  margin:10px auto 0;
+  text-align:center;
+  font-size:.82rem;
+  color:var(--muted);
+  display:none;
+}
+.search-results-info.show{display:block}
+.search-results-info strong{color:var(--accent)}
+
+/* ============ NAV ============ */
+nav{
+  position:sticky;top:0;z-index:50;
+  background:var(--nav-bg);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  transition:background var(--transition);
+}
+nav ul{
+  display:flex;justify-content:center;gap:4px;
+  list-style:none;padding:10px 12px;overflow-x:auto;
+  scrollbar-width:none;
+}
+nav ul::-webkit-scrollbar{display:none}
+nav a{
+  padding:8px 14px;border-radius:999px;font-size:.85rem;
+  color:var(--muted);white-space:nowrap;transition:.2s;
+}
+nav a:hover,nav a.active{background:var(--accent);color:#0d1b2a;font-weight:600}
+
+/* ============ SECTIONS ============ */
+section{padding:50px 20px;max-width:900px;margin:0 auto}
+.section-title{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1.4rem,4.5vw,2rem);
+  margin-bottom:8px;
+}
+.section-sub{color:var(--muted);font-size:.9rem;margin-bottom:26px}
+.divider{width:50px;height:3px;background:var(--accent);border-radius:2px;margin:10px 0 26px}
+
+/* ============ ABOUT ============ */
+.about-card{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);
+  transition:background var(--transition),border-color var(--transition);
+}
+.about-card p{color:var(--text);opacity:.92;font-size:.95rem;margin-bottom:12px}
+.about-card .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.about-card .tags span{
+  background:rgba(244,162,97,.14);color:var(--accent);
+  padding:5px 12px;border-radius:999px;font-size:.78rem;font-weight:500;
+}
+
+/* ============ MUSIC PLAYER ============ */
+.music-player{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);
+  transition:background var(--transition),border-color var(--transition);
+}
+.mp-head{display:flex;align-items:center;gap:16px;margin-bottom:18px}
+.mp-cover{
+  width:70px;height:70px;border-radius:14px;flex-shrink:0;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.9rem;color:#fff;font-weight:700;
+  box-shadow:0 6px 18px rgba(244,162,97,.35);
+  transition:transform .3s;
+}
+.mp-cover.playing{animation:spin 4s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.mp-info{min-width:0;flex:1}
+.mp-title{font-weight:600;font-size:1rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mp-artist{color:var(--muted);font-size:.8rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+.mp-progress-wrap{
+  display:flex;align-items:center;gap:10px;
+  font-size:.72rem;color:var(--muted);margin-bottom:14px;
+}
+input[type="range"]{
+  -webkit-appearance:none;appearance:none;
+  flex:1;height:6px;border-radius:3px;background:var(--border-strong);
+  outline:none;cursor:pointer;
+}
+input[type="range"]::-webkit-slider-thumb{
+  -webkit-appearance:none;appearance:none;
+  width:16px;height:16px;border-radius:50%;
+  background:var(--accent);cursor:pointer;
+  box-shadow:0 0 0 3px rgba(244,162,97,.25);
+  transition:transform .15s;
+}
+input[type="range"]::-webkit-slider-thumb:hover{transform:scale(1.15)}
+input[type="range"]::-moz-range-thumb{
+  width:16px;height:16px;border-radius:50%;
+  background:var(--accent);cursor:pointer;border:none;
+  box-shadow:0 0 0 3px rgba(244,162,97,.25);
+}
+
+.mp-controls{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  margin-bottom:14px;
+}
+.mp-controls button{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--card-2);border:1px solid var(--border);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.1rem;transition:.2s;
+}
+.mp-controls button:hover{background:var(--accent);color:#0d1b2a;border-color:var(--accent)}
+.mp-controls .mp-play{
+  width:58px;height:58px;font-size:1.4rem;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;border:none;
+  box-shadow:0 6px 20px rgba(244,162,97,.4);
+}
+.mp-controls button.active{background:var(--accent);color:#0d1b2a}
+
+.mp-volume{
+  display:flex;align-items:center;gap:10px;
+  font-size:.85rem;color:var(--muted);
+}
+.mp-volume input{max-width:120px}
+
+.mp-playlist{
+  list-style:none;margin-top:20px;
+  border-top:1px solid var(--border);padding-top:14px;
+}
+.mp-playlist li{
+  display:flex;align-items:center;gap:12px;
+  padding:10px 12px;border-radius:10px;
+  cursor:pointer;font-size:.88rem;transition:.2s;
+}
+.mp-playlist li:hover{background:var(--card-2)}
+.mp-playlist li.active{background:rgba(244,162,97,.14);color:var(--accent);font-weight:600}
+.mp-playlist li .num{
+  width:22px;text-align:center;color:var(--muted);font-size:.75rem;
+}
+.mp-playlist li.active .num{color:var(--accent)}
+
+/* ============ VIDEO PLAYER ============ */
+.video-player{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+  transition:background var(--transition),border-color var(--transition);
+}
+.video-player video{
+  width:100%;display:block;aspect-ratio:16/9;background:#000;
+}
+.video-info{padding:18px 20px}
+.video-info h3{
+  font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:6px;
+  color:var(--accent);
+}
+.video-info p{color:var(--muted);font-size:.88rem;margin-bottom:12px}
+
+.video-list{display:grid;gap:10px;margin-top:16px}
+.video-item{
+  display:flex;gap:12px;align-items:center;
+  background:var(--card);border:1px solid var(--border);
+  border-radius:12px;padding:10px;
+  cursor:pointer;transition:.25s;
+}
+.video-item:hover,.video-item.active{
+  border-color:var(--accent);background:var(--card-2);
+  transform:translateX(4px);
+}
+.video-item .vthumb{
+  width:80px;height:52px;border-radius:8px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.4rem;color:#fff;
+}
+.video-item .vinfo{min-width:0}
+.video-item .vtitle{font-size:.9rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.video-item .vdesc{font-size:.72rem;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+
+/* ============ GALERÍA ============ */
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(150px,1fr));
+  gap:12px;
+}
+.gallery figure{
+  position:relative;border-radius:14px;overflow:hidden;
+  background:var(--card);aspect-ratio:1/1;
+  border:1px solid var(--border);cursor:pointer;transition:.3s;
+}
+.gallery figure:hover{transform:scale(1.03);border-color:var(--accent)}
+.gallery img{width:100%;height:100%;object-fit:cover}
+.gallery figcaption{
+  position:absolute;left:0;right:0;bottom:0;
+  padding:10px;font-size:.72rem;
+  background:linear-gradient(transparent,rgba(0,0,0,.85));
+  color:#fff;
+}
+
+/* ============ POSTS ============ */
+.posts{display:grid;gap:16px}
+.post{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:20px;transition:.25s;
+}
+.post:hover{border-color:var(--accent);transform:translateY(-2px)}
+.post h3{
+  font-family:'Playfair Display',serif;
+  color:var(--accent);margin-bottom:8px;font-size:1.15rem;
+}
+.post p{color:var(--text);opacity:.9;font-size:.92rem}
+.post small{display:block;color:var(--muted);font-size:.75rem;margin-top:10px}
+
+/* ============ SHARE BAR ============ */
+.share-bar{
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px;
+  margin-top:14px;padding-top:12px;border-top:1px solid var(--border);
+}
+.share-bar .share-label{font-size:.75rem;color:var(--muted);margin-right:4px}
+.share-btn{
+  width:36px;height:36px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--card-2);border:1px solid var(--border);
+  font-size:.85rem;transition:.25s;cursor:pointer;
+}
+.share-btn:hover{transform:translateY(-3px) scale(1.05);color:#fff}
+.share-btn.wa:hover{background:#25d366;border-color:#25d366}
+.share-btn.fb:hover{background:#1877f2;border-color:#1877f2}
+.share-btn.tw:hover{background:#000;border-color:#000}
+.share-btn.tg:hover{background:#0088cc;border-color:#0088cc}
+.share-btn.copy:hover{background:var(--accent);border-color:var(--accent);color:#0d1b2a}
+.share-btn.native{background:linear-gradient(135deg,var(--accent),var(--accent-2));color:#fff;border:none}
+.share-btn.native:hover{transform:translateY(-3px) scale(1.05)}
+
+/* ============ NO RESULTS ============ */
+.no-results{
+  display:none;
+  text-align:center;
+  padding:30px 20px;
+  color:var(--muted);
+  font-size:.9rem;
+}
+.no-results.show{display:block}
+.no-results .emoji{font-size:2.5rem;display:block;margin-bottom:10px}
+
+/* ============ CONTACTO ============ */
+.contact-form{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);
+}
+.field{margin-bottom:16px}
+.field label{
+  display:block;font-size:.85rem;color:var(--muted);
+  margin-bottom:6px;font-weight:500;
+}
+.field input,.field textarea{
+  width:100%;padding:12px 14px;border-radius:12px;
+  background:var(--input-bg);color:var(--text);
+  border:1px solid var(--border-strong);
+  outline:none;transition:.2s;
+}
+.field input:focus,.field textarea:focus{
+  border-color:var(--accent);box-shadow:0 0 0 3px rgba(244,162,97,.18);
+}
+.field textarea{resize:vertical;min-height:110px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;
+  gap:8px;width:100%;padding:14px;
+  background:linear-gradient(135deg,var(--green),#1da851);
+  color:#fff;font-weight:600;border:none;
+  border-radius:12px;cursor:pointer;transition:.25s;font-size:1rem;
+}
+.btn:hover{transform:translateY(-2px);box-shadow:0 8px 20px rgba(37,211,102,.35)}
+.btn:active{transform:scale(.98)}
+
+.contact-info{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:12px;margin-top:20px;
+}
+.contact-info a{
+  display:flex;align-items:center;gap:10px;
+  background:var(--card);padding:14px;border-radius:12px;
+  border:1px solid var(--border);font-size:.88rem;transition:.2s;
+}
+.contact-info a:hover{background:var(--card-2);border-color:var(--accent)}
+
+/* ============ FOOTER ============ */
+footer{
+  text-align:center;padding:36px 20px 40px;
+  border-top:1px solid var(--border);
+  color:var(--muted);font-size:.82rem;
+  transition:border-color var(--transition);
+}
+footer .hashtags{
+  display:flex;flex-wrap:wrap;justify-content:center;
+  gap:8px;margin:14px 0;
+}
+footer .hashtags span{color:var(--accent);font-size:.78rem}
+footer strong{color:var(--text)}
+
+/* ============ VISIT COUNTER ============ */
+.visits-counter{
+  display:inline-flex;
+  align-items:center;
+  gap:10px;
+  padding:10px 18px;
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:999px;
+  font-size:.82rem;
+  color:var(--muted);
+  margin:8px 0 4px;
+  transition:background var(--transition),border-color var(--transition);
+}
+.visits-counter .vc-num{
+  font-weight:700;
+  font-size:1rem;
+  color:var(--accent);
+  font-variant-numeric:tabular-nums;
+  min-width:20px;
+  display:inline-block;
+  text-align:center;
+}
+.visits-counter .vc-divider{opacity:.4}
+.visits-counter .vc-tag{font-size:.7rem;letter-spacing:.4px;text-transform:uppercase}
+
+/* ============ FLOAT WHATSAPP ============ */
+.wa-float{
+  position:fixed;bottom:20px;right:20px;z-index:90;
+  width:58px;height:58px;border-radius:50%;
+  background:var(--green);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.7rem;
+  box-shadow:0 8px 25px rgba(37,211,102,.45);
+  animation:pulse 2.4s infinite;
+}
+@keyframes pulse{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.08)}
+}
+
+/* ============ TOAST ============ */
+.toast{
+  position:fixed;bottom:90px;left:50%;transform:translateX(-50%) translateY(30px);
+  background:var(--card);color:var(--text);
+  padding:12px 20px;border-radius:999px;
+  border:1px solid var(--border-strong);
+  box-shadow:var(--shadow);font-size:.85rem;
+  opacity:0;pointer-events:none;transition:.35s;z-index:200;
+  max-width:90vw;text-align:center;
+}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* ============ MODAL INSTALAR PWA ============ */
+.pwa-modal{
+  position:fixed;inset:0;z-index:300;
+  background:rgba(0,0,0,.65);
+  display:none;align-items:center;justify-content:center;
+  padding:20px;
+  backdrop-filter:blur(6px);
+}
+.pwa-modal.show{display:flex}
+.pwa-modal-content{
+  background:var(--card);
+  border:1px solid var(--border-strong);
+  border-radius:20px;
+  padding:26px 22px;
+  max-width:380px;
+  width:100%;
+  box-shadow:var(--shadow);
+  animation:pop .3s cubic-bezier(.2,.7,.3,1);
+}
+@keyframes pop{
+  from{opacity:0;transform:scale(.9)}
+  to{opacity:1;transform:scale(1)}
+}
+.pwa-modal h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.25rem;margin-bottom:12px;color:var(--accent);
+}
+.pwa-modal ol{
+  margin:14px 0 18px 20px;
+  font-size:.88rem;
+  color:var(--text);
+}
+.pwa-modal ol li{margin-bottom:8px}
+.pwa-modal .close-btn{
+  width:100%;padding:12px;
+  background:linear-gradient(135deg,var(--accent),var(--accent-2));
+  color:#fff;border-radius:12px;font-weight:600;
+  transition:.2s;
+}
+.pwa-modal .close-btn:hover{transform:translateY(-2px)}
+
+/* ============ ANIMACIÓN ============ */
+.reveal{opacity:0;transform:translateY(24px);transition:.7s cubic-bezier(.2,.7,.3,1)}
+.reveal.visible{opacity:1;transform:none}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width:480px){
+  section{padding:40px 16px}
+  .hero{padding:55px 16px 40px}
+  .hero .avatar{width:100px;height:100px;font-size:2.2rem}
+  .gallery{grid-template-columns:repeat(2,1fr);gap:10px}
+  .mp-controls{gap:6px}
+  .mp-controls button{width:40px;height:40px;font-size:1rem}
+  .mp-controls .mp-play{width:52px;height:52px;font-size:1.25rem}
+  .video-item .vthumb{width:64px;height:44px}
+  .top-controls{top:8px;right:8px;gap:6px}
+  .ctrl-btn{width:42px;height:42px}
+  .search-bar input{padding:12px 40px 12px 42px;font-size:.88rem}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ TOP CONTROLS ============ -->
+<div class="top-controls">
+  <button class="ctrl-btn install-btn" id="installBtn" aria-label="Instalar app" title="Instalar app">⬇</button>
+  <button class="ctrl-btn theme-toggle" id="themeToggle" aria-label="Cambiar tema">
+    <span class="icon-moon">🌙</span>
+    <span class="icon-sun">☀️</span>
+  </button>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="avatar">JC</div>
+  <h1>Frases Epigramas y <span>Poesía</span><br>y Series Películas Cubanas Gratis</h1>
+  <p class="tag">Blog personal de <strong>Juan Carlos Paty Castillo</strong>. Comparto frases, epigramas, poesía y material audiovisual cubano de forma gratuita.</p>
+
+  <!-- BUSCADOR -->
+  <div class="search-bar">
+    <span class="search-icon">🔍</span>
+    <input type="search" id="searchInput" placeholder="Buscar en publicaciones, videos, música..." autocomplete="off">
+    <button class="search-clear" id="searchClear" aria-label="Limpiar">✕</button>
+  </div>
+  <div class="search-results-info" id="searchInfo"></div>
+
+  <div class="socials" style="margin-top:22px">
+    <a href="https://www.youtube.com/@JuanCarlosPatyCastillo-q1y" target="_blank" rel="noopener" title="YouTube">▶</a>
+    <a href="https://www.facebook.com/share/1CDoNhbVwv/" target="_blank" rel="noopener" title="Facebook">f</a>
+    <a href="https://www.instagram.com/jcpatycastillo?psln=MWo3c3NmNWE5MG41Zg==" target="_blank" rel="noopener" title="Instagram">◉</a>
+    <a href="https://t.me/JCPatyC" target="_blank" rel="noopener" title="Telegram">✈</a>
+    <a href="https://wa.me/5359660784" target="_blank" rel="noopener" title="WhatsApp">✆</a>
+  </div>
+</header>
+
+<!-- ============ NAV ============ -->
+<nav>
+  <ul>
+    <li><a href="#inicio" class="active">Inicio</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#musica">Música</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#galeria">Galería</a></li>
+    <li><a href="#publicaciones">Blog</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+</nav>
+
+<!-- ============ SOBRE MÍ ============ -->
+<section id="sobre-mi" class="reveal">
+  <h2 class="section-title">Sobre mí</h2>
+  <div class="divider"></div>
+  <div class="about-card">
+    <p>Soy <strong>Juan Carlos Paty Castillo</strong>, escritor y creador de contenido cubano. En este espacio reúno mis <em>frases, epigramas y poemas</em>, junto a una selección de <em>series y películas cubanas</em> que comparto de forma gratuita con toda la comunidad.</p>
+    <p>Mi objetivo es mantener viva la cultura cubana y acercar la poesía a todo el que la quiera leer.</p>
+    <div class="tags">
+      <span>#frasesepigramasypoesia</span>
+      <span>#seriresypeliculascubanasgratis</span>
+      <span>Poesía cubana</span>
+      <span>Cultura</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MÚSICA ============ -->
+<section id="musica" class="reveal">
+  <h2 class="section-title">🎵 Reproductor de Música</h2>
+  <p class="section-sub">Escucha poemas musicalizados y audios del blog.</p>
+  <div class="divider"></div>
+
+  <div class="music-player">
+    <div class="mp-head">
+      <div class="mp-cover" id="mpCover">♪</div>
+      <div class="mp-info">
+        <div class="mp-title" id="mpTitle">Selecciona una pista</div>
+        <div class="mp-artist" id="mpArtist">Juan Carlos Paty Castillo</div>
+      </div>
+    </div>
+
+    <div class="mp-progress-wrap">
+      <span id="mpCurrent">0:00</span>
+      <input type="range" id="mpProgress" min="0" max="100" value="0" step="0.1">
+      <span id="mpDuration">0:00</span>
+    </div>
+
+    <div class="mp-controls">
+      <button id="mpShuffle" title="Aleatorio">🔀</button>
+      <button id="mpPrev" title="Anterior">⏮</button>
+      <button id="mpPlay" class="mp-play" title="Reproducir">▶</button>
+      <button id="mpNext" title="Siguiente">⏭</button>
+      <button id="mpRepeat" title="Repetir">🔁</button>
+    </div>
+
+    <div class="mp-volume">
+      <span>🔊</span>
+      <input type="range" id="mpVolume" min="0" max="1" step="0.01" value="0.8">
+    </div>
+
+    <ul class="mp-playlist" id="mpPlaylist"></ul>
+  </div>
+</section>
+
+<!-- ============ VIDEOS ============ -->
+<section id="videos" class="reveal">
+  <h2 class="section-title">🎬 Reproductor de Videos</h2>
+  <p class="section-sub">Series y películas cubanas. También puedes verlas en mi canal de YouTube.</p>
+  <div class="divider"></div>
+
+  <div class="video-player">
+    <video id="videoEl" controls playsinline preload="metadata">
+      Tu navegador no soporta video HTML5.
+    </video>
+    <div class="video-info">
+      <h3 id="videoTitle">Selecciona un video</h3>
+      <p id="videoDesc">Elige un título de la lista para comenzar.</p>
+      <div class="share-bar" id="videoShare"></div>
+    </div>
+  </div>
+
+  <div class="video-list" id="videoList"></div>
+</section>
+
+<!-- ============ GALERÍA ============ -->
+<section id="galeria" class="reveal">
+  <h2 class="section-title">📸 Galería</h2>
+  <p class="section-sub">Fotos y capturas de mis publicaciones.</p>
+  <div class="divider"></div>
+  <div class="gallery" id="gallery"></div>
+  <div class="no-results" id="galeriaNoResults">
+    <span class="emoji">🔎</span>Sin resultados en la galería
+  </div>
+</section>
+
+<!-- ============ PUBLICACIONES ============ -->
+<section id="publicaciones" class="reveal">
+  <h2 class="section-title">📝 Publicaciones</h2>
+  <p class="section-sub">Últimas entradas del blog.</p>
+  <div class="divider"></div>
+  <div class="posts" id="posts"></div>
+  <div class="no-results" id="postsNoResults">
+    <span class="emoji">🔎</span>Sin resultados en publicaciones
+  </div>
+</section>
+
+<!-- ============ CONTACTO ============ -->
+<section id="contacto" class="reveal">
+  <h2 class="section-title">✉️ Contacto</h2>
+  <p class="section-sub">Escríbeme y el mensaje llegará directo a mi WhatsApp.</p>
+  <div class="divider"></div>
+
+  <form class="contact-form" id="contactForm" novalidate>
+    <div class="field">
+      <label for="nombre">Tu nombre</label>
+      <input type="text" id="nombre" name="nombre" placeholder="Ej: María Pérez" required>
+    </div>
+    <div class="field">
+      <label for="mensaje">Mensaje</label>
+      <textarea id="mensaje" name="mensaje" placeholder="Escribe aquí tu mensaje..." required></textarea>
+    </div>
+    <button type="submit" class="btn">✆ Enviar por WhatsApp</button>
+  </form>
+
+  <div class="contact-info">
+    <a href="tel:+5359660784">📞 <span>+53 5 966 0784</span></a>
+    <a href="https://wa.me/5359660784" target="_blank" rel="noopener">✆ WhatsApp</a>
+    <a href="https://t.me/JCPatyC" target="_blank" rel="noopener">✈ Telegram</a>
+    <a href="https://www.youtube.com/@JuanCarlosPatyCastillo-q1y" target="_blank" rel="noopener">▶ YouTube</a>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <strong>Juan Carlos Paty Castillo</strong>
+  <div class="hashtags">
+    <span>#frasesepigramasypoesia</span>
+    <span>#seriresypeliculascubanasgratis</span>
+  </div>
+
+  <!-- CONTADOR DE VISITAS -->
+  <div class="visits-counter" id="visitsBox">
+    <span>👁️</span>
+    <span class="vc-tag">Tú</span>
+    <span class="vc-num" id="localVisits">—</span>
+    <span class="vc-divider">·</span>
+    <span class="vc-tag">Global</span>
+    <span class="vc-num" id="globalVisits">…</span>
+  </div>
+
+  <div class="share-bar" id="siteShare" style="justify-content:center;border-top:none;padding-top:0;margin-top:8px;"></div>
+  <p style="margin-top:14px">© <span id="year"></span> Todos los derechos reservados.</p>
+</footer>
+
+<!-- ============ BOTÓN FLOTANTE WHATSAPP ============ -->
+<a class="wa-float" href="https://wa.me/5359660784" target="_blank" rel="noopener" title="WhatsApp">✆</a>
+
+<!-- ============ TOAST ============ -->
+<div class="toast" id="toast"></div>
+
+<!-- ============ MODAL PWA ============ -->
+<div class="pwa-modal" id="pwaModal">
+  <div class="pwa-modal-content">
+    <h3>📲 Instalar esta app</h3>
+    <p style="font-size:.88rem;color:var(--muted)">Agrega el sitio a tu pantalla de inicio para abrirlo como una app:</p>
+    <ol>
+      <li>Toca el menú <strong>⋮</strong> de Chrome (arriba a la derecha).</li>
+      <li>Selecciona <strong>«Añadir a pantalla de inicio»</strong>.</li>
+      <li>Confirma y aparecerá el icono <strong>JC</strong> en tu Xiaomi.</li>
+    </ol>
+    <button class="close-btn" id="pwaClose">Entendido</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================
+   0. PWA — MANIFEST DINÁMICO + ICONO
+   ============================================================ */
+(function initPWA(){
+  const iconSvg = (size) => `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${size} ${size}">
+    <defs>
+      <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#f4a261"/>
+        <stop offset="1" stop-color="#e76f51"/>
+      </linearGradient>
+    </defs>
+    <rect width="${size}" height="${size}" rx="${size*0.22}" fill="url(#g)"/>
+    <text x="50%" y="63%" font-family="Georgia,serif" font-size="${size*0.45}" font-weight="700" text-anchor="middle" fill="#0d1b2a">JC</text>
+  </svg>`;
+
+  const icon192 = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(iconSvg(192));
+  const icon512 = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(iconSvg(512));
+
+  // Favicon + Apple touch
+  document.getElementById('favicon').href = icon192;
+  document.getElementById('appleIcon').href = icon192;
+
+  // Manifest
+  const manifest = {
+    name: 'Frases Epigramas y Poesía — JCPaty',
+    short_name: 'JCPaty',
+    description: 'Blog personal de Juan Carlos Paty Castillo. Frases, epigramas, poesía y series/películas cubanas gratis.',
+    start_url: location.pathname || './',
+    scope: './',
+    display: 'standalone',
+    orientation: 'portrait',
+    background_color: '#0d1b2a',
+    theme_color: '#0d1b2a',
+    lang: 'es',
+    categories: ['books', 'entertainment', 'education'],
+    icons: [
+      { src: icon192, sizes: '192x192', type: 'image/svg+xml', purpose: 'any' },
+      { src: icon192, sizes: '192x192', type: 'image/svg+xml', purpose: 'maskable' },
+      { src: icon512, sizes: '512x512', type: 'image/svg+xml', purpose: 'any' },
+      { src: icon512, sizes: '512x512', type: 'image/svg+xml', purpose: 'maskable' }
+    ]
+  };
+
+  try {
+    const blob = new Blob([JSON.stringify(manifest)], { type: 'application/manifest+json' });
+    document.getElementById('manifestLink').href = URL.createObjectURL(blob);
+  } catch(e){ console.warn('Manifest blob falló:', e); }
+
+  // Botón instalar — usa el prompt nativo si está disponible, si no muestra instrucciones
+  const installBtn = document.getElementById('installBtn');
+  const pwaModal = document.getElementById('pwaModal');
+  let deferredPrompt = null;
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    installBtn.classList.add('show');
+  });
+
+  installBtn.addEventListener('click', async () => {
+    if (deferredPrompt){
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') showToast('✅ App instalada');
+      deferredPrompt = null;
+      installBtn.classList.remove('show');
+    } else {
+      pwaModal.classList.add('show');
+    }
+  });
+
+  document.getElementById('pwaClose').addEventListener('click', () => pwaModal.classList.remove('show'));
+  pwaModal.addEventListener('click', (e) => { if (e.target === pwaModal) pwaModal.classList.remove('show'); });
+
+  // Mostrar el botón igual tras un momento (para que el usuario sepa que puede instalar)
+  setTimeout(() => { if (!deferredPrompt) installBtn.classList.add('show'); }, 4000);
+})();
+
+
+/* ============================================================
+   1. TEMA OSCURO / CLARO
+   ============================================================ */
+const html = document.documentElement;
+const themeToggle = document.getElementById('themeToggle');
+const metaTheme = document.querySelector('meta[name="theme-color"]');
+
+function applyTheme(t){
+  html.setAttribute('data-theme', t);
+  if (metaTheme) metaTheme.setAttribute('content', t === 'dark' ? '#0d1b2a' : '#f4f7fb');
+  try { localStorage.setItem('jc-theme', t); } catch(e){}
+}
+function getSavedTheme(){
+  try { return localStorage.getItem('jc-theme'); } catch(e){ return null; }
+}
+const saved = getSavedTheme();
+const prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+applyTheme(saved || (prefersLight ? 'light' : 'dark'));
+
+themeToggle.addEventListener('click', () => {
+  applyTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+});
+
+
+/* ============================================================
+   2. TOAST
+   ============================================================ */
+const toast = document.getElementById('toast');
+let toastTimer;
+function showToast(msg){
+  toast.textContent = msg;
+  toast.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => toast.classList.remove('show'), 2400);
+}
+
+
+/* ============================================================
+   3. COMPARTIR EN REDES
+   ============================================================ */
+function buildShareButtons(text, container){
+  const url = encodeURIComponent(location.href.split('#')[0]);
+  const txt = encodeURIComponent(text);
+  const fullText = encodeURIComponent(text + ' ' + location.href.split('#')[0]);
+
+  const buttons = [
+    { cls:'native', icon:'↗', title:'Compartir', action:'native' },
+    { cls:'wa', icon:'✆', title:'WhatsApp', href:`https://wa.me/?text=${fullText}` },
+    { cls:'fb', icon:'f', title:'Facebook', href:`https://www.facebook.com/sharer/sharer.php?u=${url}` },
+    { cls:'tw', icon:'𝕏', title:'X / Twitter', href:`https://twitter.com/intent/tweet?url=${url}&text=${txt}` },
+    { cls:'tg', icon:'✈', title:'Telegram', href:`https://t.me/share/url?url=${url}&text=${txt}` },
+    { cls:'copy', icon:'🔗', title:'Copiar enlace', action:'copy' }
+  ];
+
+  const frag = document.createDocumentFragment();
+  const label = document.createElement('span');
+  label.className = 'share-label';
+  label.textContent = 'Compartir:';
+  frag.appendChild(label);
+
+  buttons.forEach(b => {
+    const el = b.href ? document.createElement('a') : document.createElement('button');
+    el.className = 'share-btn ' + b.cls;
+    el.title = b.title;
+    el.innerHTML = b.icon;
+    if (b.href){ el.href = b.href; el.target = '_blank'; el.rel = 'noopener'; }
+    if (b.action === 'copy'){
+      el.addEventListener('click', () => {
+        navigator.clipboard.writeText(location.href)
+          .then(() => showToast('✅ Enlace copiado'))
+          .catch(() => showToast('❌ No se pudo copiar'));
+      });
+    }
+    if (b.action === 'native'){
+      el.addEventListener('click', async () => {
+        if (navigator.share){
+          try { await navigator.share({ title: document.title, text, url: location.href }); } catch(e){}
+        } else showToast('Tu navegador no soporta compartir nativo');
+      });
+    }
+    frag.appendChild(el);
+  });
+
+  container.innerHTML = '';
+  container.appendChild(frag);
+}
+
+
+/* ============================================================
+   4. CONTADOR DE VISITAS
+   ============================================================ */
+(function initVisits(){
+  const localEl  = document.getElementById('localVisits');
+  const globalEl = document.getElementById('globalVisits');
+
+  // --- Local (por dispositivo) ---
+  let local = 0;
+  try {
+    local = parseInt(localStorage.getItem('jc-visits') || '0', 10) + 1;
+    localStorage.setItem('jc-visits', String(local));
+  } catch(e){ local = 1; }
+  animateCount(localEl, local, 800);
+
+  // --- Global (contador externo gratuito) ---
+  const COUNTER_NS  = 'jcpatycastillo-blog';
+  const COUNTER_KEY = 'visits-v1';
+  const endpoint = `https://api.counterapi.dev/v1/${COUNTER_NS}/${COUNTER_KEY}/up`;
+
+  // Fallback si la API externa no responde
+  const fallback = () => {
+    try {
+      const cached = parseInt(localStorage.getItem('jc-global') || '0', 10);
+      if (cached > 0){
+        globalEl.textContent = cached.toLocaleString('es');
+        return;
+      }
+    } catch(e){}
+    globalEl.textContent = '—';
+  };
+
+  if (navigator.onLine){
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), 5000);
+    fetch(endpoint, { signal: ctrl.signal })
+      .then(r => r.ok ? r.json() : Promise.reject(r.status))
+      .then(data => {
+        const count = (data && (data.count ?? data.value)) || 0;
+        try { localStorage.setItem('jc-global', String(count)); } catch(e){}
+        animateCount(globalEl, count, 1200);
+      })
+      .catch(() => fallback())
+      .finally(() => clearTimeout(t));
+  } else {
+    fallback();
+  }
+})();
+
+function animateCount(el, target, duration){
+  if (!el) return;
+  const start = performance.now();
+  const from = 0;
+  function tick(now){
+    const p = Math.min(1, (now - start) / duration);
+    const eased = 1 - Math.pow(1 - p, 3);
+    const current = Math.floor(from + (target - from) * eased);
+    el.textContent = current.toLocaleString('es');
+    if (p < 1) requestAnimationFrame(tick);
+    else el.textContent = target.toLocaleString('es');
+  }
+  requestAnimationFrame(tick);
+}
+
+
+/* ============================================================
+   5. REPRODUCTOR DE MÚSICA
+   ============================================================ */
+const tracks = [
+  { title:'Epigrama musical I',  artist:'Juan Carlos Paty Castillo', src:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3', color:'#f4a261', emoji:'✒️' },
+  { title:'Poema del mar',       artist:'Juan Carlos Paty Castillo', src:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3', color:'#2a9d8f', emoji:'🌊' },
+  { title:'Reflexión nocturna',  artist:'Juan Carlos Paty Castillo', src:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3', color:'#8e7dbe', emoji:'🌙' },
+  { title:'Cultura cubana',      artist:'Juan Carlos Paty Castillo', src:'https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3', color:'#e76f51', emoji:'🇨🇺' }
+];
+
+const audio = new Audio();
+audio.preload = 'metadata';
+audio.volume = 0.8;
+
+const mpTitle = document.getElementById('mpTitle');
+const mpArtist = document.getElementById('mpArtist');
+const mpCover = document.getElementById('mpCover');
+const mpCurrent = document.getElementById('mpCurrent');
+const mpDuration = document.getElementById('mpDuration');
+const mpProgress = document.getElementById('mpProgress');
+const mpPlay = document.getElementById('mpPlay');
+const mpPrev = document.getElementById('mpPrev');
+const mpNext = document.getElementById('mpNext');
+const mpShuffle = document.getElementById('mpShuffle');
+const mpRepeat = document.getElementById('mpRepeat');
+const mpVolume = document.getElementById('mpVolume');
+const mpPlaylist = document.getElementById('mpPlaylist');
+
+let currentIndex = 0;
+let isShuffle = false;
+let isRepeat = false;
+
+tracks.forEach((t, i) => {
+  const li = document.createElement('li');
+  li.dataset.index = i;
+  li.innerHTML = `<span class="num">${i+1}</span><span>${t.emoji} ${t.title}</span>`;
+  li.addEventListener('click', () => loadTrack(i, true));
+  mpPlaylist.appendChild(li);
+});
+
+function fmt(s){
+  if (!isFinite(s)) return '0:00';
+  const m = Math.floor(s/60), sec = Math.floor(s%60);
+  return m + ':' + (sec<10?'0':'') + sec;
+}
+function shade(hex){
+  const n = parseInt(hex.slice(1), 16);
+  const r = Math.max(0, (n>>16) - 40);
+  const g = Math.max(0, ((n>>8)&0xff) - 40);
+  const b = Math.max(0, (n&0xff) - 40);
+  return '#' + ((r<<16)|(g<<8)|b).toString(16).padStart(6,'0');
+}
+
+function loadTrack(i, autoPlay){
+  currentIndex = (i + tracks.length) % tracks.length;
+  const t = tracks[currentIndex];
+  audio.src = t.src;
+  mpTitle.textContent = t.title;
+  mpArtist.textContent = t.artist;
+  mpCover.textContent = t.emoji;
+  mpCover.style.background = `linear-gradient(135deg, ${t.color}, ${shade(t.color)})`;
+  document.querySelectorAll('.mp-playlist li').forEach((el, idx) => {
+    el.classList.toggle('active', idx === currentIndex);
+  });
+  mpCurrent.textContent = '0:00';
+  mpDuration.textContent = '0:00';
+  mpProgress.value = 0;
+  if (autoPlay) audio.play().catch(err => console.warn('Autoplay bloqueado:', err));
+}
+
+function playPause(){
+  if (!audio.src) loadTrack(0, true);
+  else if (audio.paused) audio.play();
+  else audio.pause();
+}
+mpPlay.addEventListener('click', playPause);
+mpPrev.addEventListener('click', () => loadTrack(currentIndex - 1, true));
+mpNext.addEventListener('click', () => {
+  if (isShuffle){
+    let n; do { n = Math.floor(Math.random() * tracks.length); } while (n === currentIndex && tracks.length > 1);
+    loadTrack(n, true);
+  } else loadTrack(currentIndex + 1, true);
+});
+mpShuffle.addEventListener('click', () => {
+  isShuffle = !isShuffle;
+  mpShuffle.classList.toggle('active', isShuffle);
+  showToast(isShuffle ? '🔀 Aleatorio activado' : '➡️ Aleatorio desactivado');
+});
+mpRepeat.addEventListener('click', () => {
+  isRepeat = !isRepeat;
+  mpRepeat.classList.toggle('active', isRepeat);
+  showToast(isRepeat ? '🔁 Repetir activado' : '▶️ Repetir desactivado');
+});
+mpVolume.addEventListener('input', e => { audio.volume = parseFloat(e.target.value); });
+mpProgress.addEventListener('input', e => {
+  if (audio.duration) audio.currentTime = (e.target.value / 100) * audio.duration;
+});
+audio.addEventListener('timeupdate', () => {
+  if (audio.duration){
+    mpProgress.value = (audio.currentTime / audio.duration) * 100;
+    mpCurrent.textContent = fmt(audio.currentTime);
+  }
+});
+audio.addEventListener('loadedmetadata', () => { mpDuration.textContent = fmt(audio.duration); });
+audio.addEventListener('play',  () => { mpPlay.textContent = '⏸'; mpCover.classList.add('playing'); });
+audio.addEventListener('pause', () => { mpPlay.textContent = '▶'; mpCover.classList.remove('playing'); });
+audio.addEventListener('ended', () => {
+  if (isRepeat){ audio.currentTime = 0; audio.play(); }
+  else if (isShuffle) mpNext.click();
+  else loadTrack(currentIndex + 1, true);
+});
+
+loadTrack(0, false);
+
+
+/* ============================================================
+   6. REPRODUCTOR DE VIDEOS
+   ============================================================ */
+const videos = [
+  { title:'Serie cubana — Capítulo 1', desc:'Producción audiovisual cubana disponible gratis.', src:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4', color:'#e76f51', emoji:'🎬' },
+  { title:'Película cubana — Clásico', desc:'Un clásico del cine cubano para disfrutar.', src:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4', color:'#2a9d8f', emoji:'🎞️' },
+  { title:'Documental — Cultura',      desc:'Recorrido por la cultura y tradiciones de la isla.', src:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4', color:'#8e7dbe', emoji:'🎭' },
+  { title:'Poesía en video',           desc:'Mis poemas recitados con imágenes.', src:'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4', color:'#f4a261', emoji:'📖' }
+];
+
+const videoEl = document.getElementById('videoEl');
+const videoTitle = document.getElementById('videoTitle');
+const videoDesc = document.getElementById('videoDesc');
+const videoList = document.getElementById('videoList');
+const videoShare = document.getElementById('videoShare');
+
+function makePoster(color, emoji){
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${color}"/><stop offset="1" stop-color="#0d1b2a"/>
+    </linearGradient></defs>
+    <rect width="640" height="360" fill="url(#g)"/>
+    <text x="320" y="200" font-size="120" text-anchor="middle" fill="#fff" font-family="sans-serif">${emoji}</text>
+  </svg>`;
+  return 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+}
+
+function loadVideo(i){
+  const v = videos[i];
+  videoEl.src = v.src;
+  videoEl.poster = makePoster(v.color, v.emoji);
+  videoTitle.textContent = v.title;
+  videoDesc.textContent = v.desc;
+  document.querySelectorAll('.video-item').forEach((el, idx) => el.classList.toggle('active', idx === i));
+  buildShareButtons('Mira este video: ' + v.title, videoShare);
+  videoEl.scrollIntoView({ behavior:'smooth', block:'center' });
+  videoEl.play().catch(()=>{});
+}
+
+videos.forEach((v, i) => {
+  const div = document.createElement('div');
+  div.className = 'video-item';
+  div.innerHTML = `
+    <div class="vthumb" style="background:linear-gradient(135deg,${v.color},#0d1b2a)">${v.emoji}</div>
+    <div class="vinfo">
+      <div class="vtitle">${v.title}</div>
+      <div class="vdesc">${v.desc}</div>
+    </div>`;
+  div.addEventListener('click', () => loadVideo(i));
+  videoList.appendChild(div);
+});
+
+videoEl.src = videos[0].src;
+videoEl.poster = makePoster(videos[0].color, videos[0].emoji);
+videoTitle.textContent = videos[0].title;
+videoDesc.textContent = videos[0].desc;
+document.querySelector('.video-item').classList.add('active');
+buildShareButtons('Mira este video: ' + videos[0].title, videoShare);
+
+
+/* ============================================================
+   7. GALERÍA
+   ============================================================ */
+const galeriaData = [
+  { titulo:'Epigrama #1',  color:'#f4a261', emoji:'✒️', tags:'poesia epigrama frase' },
+  { titulo:'Poema del mar', color:'#2a9d8f', emoji:'🌊', tags:'poesia mar cuba' },
+  { titulo:'Serie cubana',  color:'#e76f51', emoji:'🎬', tags:'serie video cubana' },
+  { titulo:'Frases',        color:'#8e7dbe', emoji:'💬', tags:'frase reflexion' },
+  { titulo:'Película',      color:'#e9c46a', emoji:'🎞️', tags:'pelicula cine cuba' },
+  { titulo:'Reflexión',     color:'#4a90e2', emoji:'📖', tags:'reflexion poema' },
+  { titulo:'Cultura',       color:'#e76f8a', emoji:'🎭', tags:'cultura cuba teatro' },
+  { titulo:'Mi isla',       color:'#52b788', emoji:'🇨🇺', tags:'cuba isla patria' }
+];
+
+const gallery = document.getElementById('gallery');
+galeriaData.forEach(item => {
+  const fig = document.createElement('figure');
+  fig.dataset.tags = (item.titulo + ' ' + item.tags).toLowerCase();
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400">
+    <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="${item.color}" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#0d1b2a"/>
+    </linearGradient></defs>
+    <rect width="400" height="400" fill="url(#g)"/>
+    <text x="200" y="230" font-size="140" text-anchor="middle" fill="#fff" font-family="sans-serif">${item.emoji}</text>
+  </svg>`;
+  const img = document.createElement('img');
+  img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+  img.alt = item.titulo;
+  img.loading = 'lazy';
+  const cap = document.createElement('figcaption');
+  cap.textContent = item.titulo;
+  fig.appendChild(img);
+  fig.appendChild(cap);
+  gallery.appendChild(fig);
+});
+
+
+/* ============================================================
+   8. PUBLICACIONES
+   ============================================================ */
+const publicaciones = [
+  { titulo:'El tiempo y la palabra', texto:'“Hay silencios que dicen más que mil versos escritos con prisa…”', meta:'Epigrama · hace 2 días', tags:'tiempo palabra epigrama poesia' },
+  { titulo:'Poema a la Isla', texto:'Un homenaje a la tierra que me vio nacer, a su mar y a su gente.', meta:'Poesía · hace 5 días', tags:'poema cuba isla mar patria' },
+  { titulo:'Series cubanas que debes ver', texto:'Recopilación de clásicos y nuevas producciones del audiovisual cubano, disponibles gratis.', meta:'Cine y TV · hace 1 semana', tags:'series video cuba cine gratis' },
+  { titulo:'Frases para el alma', texto:'Pequeñas reflexiones para acompañar el día a día.', meta:'Frases · hace 2 semanas', tags:'frases reflexion alma' }
+];
+
+const postsContainer = document.getElementById('posts');
+publicaciones.forEach(p => {
+  const art = document.createElement('article');
+  art.className = 'post';
+  art.dataset.tags = (p.titulo + ' ' + p.texto + ' ' + p.tags).toLowerCase();
+  art.innerHTML = `
+    <h3>${p.titulo}</h3>
+    <p>${p.texto}</p>
+    <small>${p.meta}</small>
+    <div class="share-bar"></div>`;
+  postsContainer.appendChild(art);
+  buildShareButtons(p.titulo + ' — ' + document.title, art.querySelector('.share-bar'));
+});
+
+
+/* ============================================================
+   9. COMPARTIR SITIO (footer)
+   ============================================================ */
+buildShareButtons(document.title, document.getElementById('siteShare'));
+
+
+/* ============================================================
+   10. BUSCADOR INTERNO
+   ============================================================ */
+const searchInput = document.getElementById('searchInput');
+const searchClear = document.getElementById('searchClear');
+const searchInfo  = document.getElementById('searchInfo');
+const galeriaNoResults = document.getElementById('galeriaNoResults');
+const postsNoResults   = document.getElementById('postsNoResults');
+
+function normalize(str){
+  return (str || '')
+    .toString()
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // quita tildes
+}
+
+function performSearch(){
+  const q = normalize(searchInput.value.trim());
+  searchClear.classList.toggle('show', q.length > 0);
+  searchInfo.classList.toggle('show', q.length > 0);
+
+  if (!q){
+    // Mostrar todo
+    document.querySelectorAll('#posts .post, #gallery figure, #videoList .video-item, #mpPlaylist li')
+      .forEach(el => el.style.display = '');
+    galeriaNoResults.classList.remove('show');
+    postsNoResults.classList.remove('show');
+    searchInfo.textContent = '';
+    return;
+  }
+
+  let totalPosts = 0, totalGal = 0, totalVid = 0, totalMus = 0;
+
+  // Posts
+  document.querySelectorAll('#posts .post').forEach(el => {
+    const match = normalize(el.dataset.tags).includes(q);
+    el.style.display = match ? '' : 'none';
+    if (match) totalPosts++;
+  });
+  postsNoResults.classList.toggle('show', totalPosts === 0);
+
+  // Galería
+  document.querySelectorAll('#gallery figure').forEach(el => {
+    const match = normalize(el.dataset.tags).includes(q);
+    el.style.display = match ? '' : 'none';
+    if (match) totalGal++;
+  });
+  galeriaNoResults.classList.toggle('show', totalGal === 0);
+
+  // Videos
+  document.querySelectorAll('#videoList .video-item').forEach((el, i) => {
+    const v = videos[i];
+    const match = normalize(v.title + ' ' + v.desc).includes(q);
+    el.style.display = match ? '' : 'none';
+    if (match) totalVid++;
+  });
+
+  // Música
+  document.querySelectorAll('#mpPlaylist li').forEach((el, i) => {
+    const t = tracks[i];
+    const match = normalize(t.title + ' ' + t.artist).includes(q);
+    el.style.display = match ? '' : 'none';
+    if (match) totalMus++;
+  });
+
+  const total = totalPosts + totalGal + totalVid + totalMus;
+  if (total === 0){
+    searchInfo.innerHTML = `Sin resultados para <strong>"${escapeHtml(searchInput.value)}"</strong>`;
+  } else {
+    searchInfo.innerHTML = `<strong>${total}</strong> resultado${total!==1?'s':''} · 
+      📝 ${totalPosts} · 📸 ${totalGal} · 🎬 ${totalVid} · 🎵 ${totalMus}`;
+  }
+}
+
+function escapeHtml(s){
+  return s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+let searchTimer;
+searchInput.addEventListener('input', () => {
+  clearTimeout(searchTimer);
+  searchTimer = setTimeout(performSearch, 180);
+});
+searchClear.addEventListener('click', () => {
+  searchInput.value = '';
+  performSearch();
+  searchInput.focus();
+});
+
+
+/* ============================================================
+   11. NAV ACTIVO AL HACER SCROLL
+   ============================================================ */
+const navLinks = document.querySelectorAll('nav a');
+const sections = document.querySelectorAll('section');
+window.addEventListener('scroll', () => {
+  let actual = '';
+  sections.forEach(s => { if (scrollY >= s.offsetTop - 130) actual = s.id; });
+  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + actual));
+});
+
+
+/* ============================================================
+   12. FORMULARIO → WHATSAPP
+   ============================================================ */
+const form = document.getElementById('contactForm');
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const nombre = document.getElementById('nombre').value.trim();
+  const mensaje = document.getElementById('mensaje').value.trim();
+
+  if (!nombre || !mensaje){ showToast('⚠️ Completa todos los campos'); return; }
+
+  const texto = `Hola Juan Carlos 👋%0A%0A*Nombre:* ${encodeURIComponent(nombre)}%0A*Mensaje:* ${encodeURIComponent(mensaje)}`;
+  const url = `https://wa.me/5359660784?text=${texto}`;
+  window.open(url, '_blank');
+  form.reset();
+  showToast('✅ Abriendo WhatsApp...');
+});
+
+
+/* ============================================================
+   13. AÑO DINÁMICO
+   ============================================================ */
+document.getElementById('year').textContent = new Date().getFullYear();
+
+
+/* ============================================================
+   14. ANIMACIÓN REVEAL
+   ============================================================ */
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if (en.isIntersecting){
+      en.target.classList.add('visible');
+      observer.unobserve(en.target);
+    }
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
+```
